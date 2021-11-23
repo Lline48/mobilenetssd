@@ -162,9 +162,8 @@ def event_handle(event,json_line):
             json_headers = ({k:v for k, v in headers.items()})
             json_headers.update({'Host':'bots.dialogflow.com'})
             url = "https://bots.dialogflow.com/line/158959d8-42b9-4050-a9c4-8ad63b781059/webhook"
-requests.post(url,data=json_line, headers=json_headers)
-            replyObj = TextSendMessage(text=msg)
-            line_bot_api.reply_message(rtoken, replyObj)
+            requests.post(url,data=json_line, headers=json_headers)
+             
     elif msgType == "image":
         try:
             message_content = line_bot_api.get_message_content(event['message']['id'])
